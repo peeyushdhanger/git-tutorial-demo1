@@ -9,4 +9,10 @@ li[4].style.border = '2px solid grey';
 li[4].style.padding = '10px';
 li[4].style.margin = '2px';
 
-//GET ELEMENTBYCLASS NAME
+// //GET ELEMENTBYCLASS NAME
+var items =document.getElementsByClassName('task');
+items[0].style.color ='green';
+items[0].style.fontWeight='bold';
+
+
+
