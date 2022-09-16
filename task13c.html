@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOKING APP</title>
+</head>
+<body>
+   <form onsubmit="saveToLocalStorage(event)">
+    <label>Name</label>
+    <input type="text" name="username" required>
+    <label>EmailId</label>
+    <input type="email" name="emailId" required>
+    <button>Submit</button>
+    <ul id="listOfUsers"></ul>
+   </form>
+   <script>
+    function saveToLocalStorage(event){
+        event.preventDefault();
+        const name = event.target.username.value;
+        const email = event.target.emailId.value;
+
+        // localStorage.setItem('name', name)
+        // localStorage.setItem('email', email)
+
+        const obj = {
+            name, 
+            email,
+        }
+            localStorage.setItem(obj.email, JSON.stringify(obj))
+            showNewUserOnScreen(obj)
+        }
+        function showNewUserOnScreen(user){
+            //cnsole.log(localStorage.getItem(user.email))
+            if (localStorage.getItem(user.email) !==null){
+                removeUserFormScreen(user.email)
+            }
+            const parentNode = document.getElementById('listOfUsers');
+            const childHTML = `<li id=${ user.email}>  ${user.name}-${ user.email} <button onclick=deleteUser('${ user.email}')></button></li>`
+
+            parentNode.innerHTML = parentNode.innerHTML + childHTML;
+        }
+        //delete user('abc@gmail.com')
+        function deleteUser(emailId){
+            console.log(emailId)
+            localStorage.removeItem(emailId)
+            removeUserFormScreen(emailId);
+        }
+        function removeUserFromScreen(emailId){
+            const parentNode = document.getElementById('listOfUsers');
+            const ChildNodeToBeDeleted = document.getElementById
+        }
+        if(ChildNodeToBeDeleted){
+            parentNode.removeChild(childNodeToBeDeleted)
+        }
+    
+   </script>
+</body>
+</html>

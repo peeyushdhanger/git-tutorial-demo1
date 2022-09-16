@@ -30,6 +30,7 @@ add.innerText = 'ADDITEMS'
 add.style.color='green';
 
 
+console.log(document.all);
 
 // var items = document.getElementsByClassName('list-group-item');
 // console.log(items);
